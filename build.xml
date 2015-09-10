@@ -18,9 +18,12 @@
                 <pathelement location="lib/hamcrest-core-1.3.jar"/>
                 <pathelement location="out"/>
             </classpath>
-            <test name="com.thoughtworks.baseline.ItemTest"/>
-            <test name="com.thoughtworks.baseline..InputReaderTest"/>
-            <test name="com.thoughtworks.baseline.ParserTest"/>
+            <batchtest fork="yes" todir="out/">
+                <formatter type="plain" usefile="false"/>
+                <fileset dir="test">
+                    <include name="**/*Test*.java" />
+                </fileset>
+            </batchtest>
         </junit>
     </target>
 </project>

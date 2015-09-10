@@ -33,4 +33,11 @@ public class ItemTest {
 
         assertEquals(54.65, item.netAmount(), 0.0001);
     }
+
+    @Test
+    public void ItemShoudlBeEqualToItself() {
+        Item item = new Item("imported bottle of perfume", 47.50, false, true);
+
+        assertEquals(item, item);
+    }
 }
