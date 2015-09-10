@@ -26,14 +26,17 @@ public class Parser {
     }
 
     public Item parse(ArrayList<String> tokens) {
+        Double grossAmount = Double.parseDouble(tokens.get(2));
         Boolean isExempted = false;
         String itemDetailToken = tokens.get(1);
         for (String item : exemptedItems) {
             if (itemDetailToken.contains(item))
                 isExempted = true;
         }
+        Boolean isImported = itemDetailToken.contains("imported");
         String itemName = itemDetailToken.substring(0, itemDetailToken.length() - 3);
-        Double grossAmount = Double.parseDouble(tokens.get(2));
-        return new Item(itemName, grossAmount, isExempted, false);
+        if(isImported)
+            itemName = itemName.substring(9);
+        return new Item(itemName, grossAmount, isExempted, isImported);
     }
 }

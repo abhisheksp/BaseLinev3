@@ -61,4 +61,22 @@ public class ParserTest {
 
         assertEquals(new Item("music CD", 12.49, false, false), parser.parse(tokens));
     }
+
+    @Test
+    public void shouldReturnNewItemInitializedWithGivenTokensWhenParserIsCalledForImportedItem() {
+        String input = "1 book at 12.49";
+        ArrayList<String> tokens = new ArrayList<String>();
+        tokens.add("1");
+        tokens.add("imported book at");
+        tokens.add("12.49");
+        ArrayList<String> exemptedItems = new ArrayList<String>();
+        exemptedItems.add("book");
+        exemptedItems.add("chocolate bar");
+        exemptedItems.add("box of chocolates");
+        exemptedItems.add("chocolates");
+        exemptedItems.add("headache pills");
+        Parser parser = new Parser(input, exemptedItems);
+
+        assertEquals(new Item("book", 12.49, true, true), parser.parse(tokens));
+    }
 }
