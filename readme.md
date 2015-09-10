@@ -8,7 +8,7 @@ Build an Application that applies the following rules to calculate the Total Amo
  * Goods are either imported or non-imported
 
  Tax-Calculation:
- * Basic Sales Tax is 0% on exempted goods(No Basic Sales Tax on empted goods)
+ * Basic Sales Tax is 0% on exempted goods(No Basic Sales Tax on exempted goods)
  * Basic Sales Tax is 10% on non-exempted goods
  	-Rounding:
  		*Round to nearest 0.05
