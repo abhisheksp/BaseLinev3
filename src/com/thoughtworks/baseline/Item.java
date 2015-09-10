@@ -19,6 +19,29 @@ public class Item {
         return Math.ceil(value * 20) / 20;
     }
 
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) return true;
+        if (that == null || getClass() != that.getClass()) return false;
+        Item thatItem = (Item) that;
+        if (Double.compare(thatItem.grossAmount, grossAmount) != 0) return false;
+        if (!name.equals(thatItem.name)) return false;
+        if (!isExempted.equals(thatItem.isExempted)) return false;
+        return isImported.equals(thatItem.isImported);
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = name.hashCode();
+        temp = Double.doubleToLongBits(grossAmount);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + isExempted.hashCode();
+        result = 31 * result + isImported.hashCode();
+        return result;
+    }
+
     public double netAmount() {
         double netAmount = grossAmount;
         if (!isExempted)
@@ -26,5 +49,6 @@ public class Item {
         if (isImported)
             netAmount += roundOffToNearestPointZeroFive(grossAmount * 5.0 / 100);
         return netAmount;
+
     }
 }

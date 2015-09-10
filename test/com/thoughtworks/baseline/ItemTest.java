@@ -3,6 +3,7 @@ package com.thoughtworks.baseline;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class ItemTest {
 
@@ -39,5 +40,15 @@ public class ItemTest {
         Item item = new Item("imported bottle of perfume", 47.50, false, true);
 
         assertEquals(item, item);
+    }
+
+    @Test
+    public void ItemShoudlBeEqualToAnotherItemWithSameDetails() {
+        assertEquals(new Item("imported bottle of perfume", 47.50, false, true), new Item("imported bottle of perfume", 47.50, false, true));
+    }
+
+    @Test
+    public void ItemShoudlNotBeEqualToAnotherItemWithDifferentDetails() {
+        assertNotEquals(new Item("imported bottle of perfume", 47.50, false, true), new Item("bottle of perfume", 47.50, false, false));
     }
 }
