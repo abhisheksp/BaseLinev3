@@ -19,6 +19,7 @@
                 <pathelement location="out"/>
             </classpath>
             <test name="com.thoughtworks.baseline.ItemTest"/>
+            <test name="com.thoughtworks.baseline..InputReaderTest"/>
         </junit>
     </target>
 </project>
