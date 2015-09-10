@@ -15,12 +15,16 @@ public class Item {
         this.isImported = isImported;
     }
 
+    private double roundOffToNearestPointZeroFive(double value) {
+        return Math.ceil(value * 20) / 20;
+    }
+
     public double netAmount() {
         double netAmount = grossAmount;
         if (!isExempted)
-            netAmount += (Math.ceil(grossAmount * (10.0 / 100) * 20) / 20);
+            netAmount += roundOffToNearestPointZeroFive(grossAmount * 10.0 / 100);
         if (isImported)
-            netAmount += (Math.ceil(grossAmount * (5.0 / 100) * 20) / 20);
+            netAmount += roundOffToNearestPointZeroFive(grossAmount * 5.0 / 100);
         return netAmount;
     }
 }
