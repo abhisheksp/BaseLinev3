@@ -41,6 +41,6 @@ public class ParserTest {
         exemptedItems.add("headache pills");
         Parser parser = new Parser(input, exemptedItems);
 
-        assertEquals(new Item("book", 12.49, true, false).hashCode(), parser.parse(tokens).toString());
+        assertEquals(new Item("book", 12.49, true, false), parser.parse(tokens));
     }
 }

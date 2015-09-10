@@ -51,4 +51,9 @@ public class ItemTest {
     public void ItemShoudlNotBeEqualToAnotherItemWithDifferentDetails() {
         assertNotEquals(new Item("imported bottle of perfume", 47.50, false, true), new Item("bottle of perfume", 47.50, false, false));
     }
+
+    @Test
+    public void ItemShoudlHaveSameHashCodeAsAnotherItemWithSameDetails() {
+        assertNotEquals(new Item("imported bottle of perfume", 47.50, false, true).hashCode(), new Item("bottle of perfume", 47.50, false, false).hashCode());
+    }
 }
