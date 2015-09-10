@@ -35,7 +35,7 @@ public class Parser {
         }
         Boolean isImported = itemDetailToken.contains("imported");
         String itemName = itemDetailToken.substring(0, itemDetailToken.length() - 3);
-        if(isImported)
+        if (isImported)
             itemName = itemName.substring(9);
         return new Item(itemName, grossAmount, isExempted, isImported);
     }
