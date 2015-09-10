@@ -15,8 +15,15 @@ public class ItemTest {
 
     @Test
     public void shouldReturnNetAmountTenPercentHigherThanGrossAmountRoundedToNearestPointZeroFiveGivenItemIsNotExemptedAndNotImported() {
-        Item item = new Item("chocolate", 14.99, false, false);
+        Item item = new Item("box of chocolate", 14.99, false, false);
 
-        assertEquals(16.49 , item.netAmount(), 0.0001);
+        assertEquals(16.49, item.netAmount(), 0.0001);
+    }
+
+    @Test
+    public void shouldReturnNetAmountFivePercentHigherThanGrossAmountRoundedToNearestPointZeroFiveGivenItemIsExemptedAndIsImported() {
+        Item item = new Item("imported box of chocolate", 10.00, true, true);
+
+        assertEquals(10.50, item.netAmount(), 0.0001);
     }
 }

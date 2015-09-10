@@ -2,6 +2,7 @@ package com.thoughtworks.baseline;
 
 /* Item has name, grossamount, ifexempted, ifimported and can calculate its net amount */
 public class Item {
+
     private String name;
     private double grossAmount;
     private Boolean isExempted;
@@ -16,8 +17,10 @@ public class Item {
 
     public double netAmount() {
         double netAmount = grossAmount;
-        if(!isExempted)
-            netAmount = (Math.ceil(grossAmount * 0.1 * 20)/20) + grossAmount;
+        if (!isExempted)
+            netAmount += (Math.ceil(grossAmount * (10.0 / 100) * 20) / 20);
+        if (isImported)
+            netAmount += (Math.ceil(grossAmount * (5.0 / 100) * 20) / 20);
         return netAmount;
     }
 }
