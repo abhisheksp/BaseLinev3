@@ -2,6 +2,7 @@ package com.thoughtworks.baseline;
 
 import java.util.ArrayList;
 
+/* Parser has a rawinput ,exempted item list that it parses and returns an Item Entity */
 public class Parser {
 
     private String rawInput;
