@@ -20,6 +20,7 @@
             </classpath>
             <test name="com.thoughtworks.baseline.ItemTest"/>
             <test name="com.thoughtworks.baseline..InputReaderTest"/>
+            <test name="com.thoughtworks.baseline.ParserTest"/>
         </junit>
     </target>
 </project>
