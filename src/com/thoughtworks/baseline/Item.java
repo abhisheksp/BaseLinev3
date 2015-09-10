@@ -15,6 +15,9 @@ public class Item {
     }
 
     public double netAmount() {
-        return grossAmount;
+        double netAmount = grossAmount;
+        if(!isExempted)
+            netAmount = (Math.ceil(grossAmount * 0.1 * 20)/20) + grossAmount;
+        return netAmount;
     }
 }
